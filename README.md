@@ -1,2 +1,2 @@
 # sec-sap
-WIP: Scraping, Analyzing and Predicting using public company filings on the SEC
+WIP: **S**craping, **A**nalyzing and **P**redicting using public company filings on the SEC
