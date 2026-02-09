@@ -5,6 +5,7 @@ import requests
 import typing
 import re
 from bs4 import BeautifulSoup, SoupStrainer
+import yfinance as yf
 
 last_req = time.time() # time at which last request was made
 
@@ -63,6 +64,9 @@ class Company:
         self.cik = str(cik).zfill(10)
         self.ticker = ticker
         self.exchange = exchange
+
+    def get_ohclv(self):
+        return yf.download([self.ticker], period="max", multi_level_index = False)
 
     def get_filings(self):
         filings = []
