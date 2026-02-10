@@ -101,3 +101,11 @@ def get_companies() -> list[Company]:
     for cik, name, ticker, exchange in companies_info["data"]:
         companies.append(Company(name, cik, ticker, exchange))
     return companies
+
+# Return a dictionary of cik -> company object
+def get_companies_dict():
+    companies = {}
+    companies_info = request("https://www.sec.gov/files/company_tickers_exchange.json", "json")
+    for cik, name, ticker, exchange in companies_info["data"]:
+        companies[str(cik).zfill(10)] = Company(name, cik, ticker, exchange)
+    return companies
